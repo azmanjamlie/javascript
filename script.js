@@ -26,10 +26,9 @@ if ((request.readyState == 4) && (request.status == 200))
 				singleset = PinPair.split("=");
 				PN = singleset[0];
 				Pinstatus = singleset[1];
-				if (PN > 11)
-				{
+				
 					ActNum = "action" + PN;
-					TxtNum = "text" + PN;
+					btnId= "pin" + PN;
 					if (Pinstatus == 0){
 						PinAct = "1";
 						text = "Off";
@@ -37,9 +36,22 @@ if ((request.readyState == 4) && (request.status == 200))
 						PinAct = "0";
 						text = "On";
 					}
-					document.getElementById(ActNum).value = PinAct;
-					document.getElementById(TxtNum).innerHTML = text;
-				}
+					document.getElementById(btnId).innerHTML = text;
+					
+				// if (PN == 2)
+				// {
+					// ActNum = "action" + PN;
+					// TxtNum = "text" + PN;
+					// if (Pinstatus == 0){
+						// PinAct = "1";
+						// text = "Off";
+					// }else{
+						// PinAct = "0";
+						// text = "On";
+					// }
+					// document.getElementById(ActNum).value = PinAct;
+					// document.getElementById(TxtNum).innerHTML = text;
+				// }
 		}
 	}
 }
