@@ -67,7 +67,7 @@ function updateasyncbutton(){
 			PinAct = "0";
 			text = "On";
 		}
-	document.getElementById(btnSuccess).value = text;
+	document.getElementById("btnSuccess").value = text;
 	}
 }
 //</script>
