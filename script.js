@@ -54,12 +54,12 @@ function sendbutton(Pin,action){
 function updateasyncbutton(){
 	if ((request.readyState == 4) && (request.status == 200)){
 		result = request.responseText;
-		// singleset = result.split(",");
-		// PinType = singleset[0];
-		// PinNum = singleset[1];
-		// Pinstatus = singleset[2];
-		// ActNum = "action" + PinNum;
-		// TxtNum = "text" + PinNum;
+		 singleset = result.split(",");
+		 PinType = singleset[0];
+		 PinNum = singleset[1];
+		 Pinstatus = singleset[2];
+		 ActNum = "action" + PinNum;
+		 TxtNum = "text" + PinNum;
 	if (Pinstatus == 0){
 			PinAct = "1";
 			text = "Off";
