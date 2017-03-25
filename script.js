@@ -7,8 +7,8 @@ function morestatus(){
    setTimeout(morestatus, 4000);
    document.getElementById("description").innerHTML = "Processing Status";
    server = "status/99";
-   //request = new XMLHttpRequest();
-    request = new ActiveXObject('Microsoft.XMLHTTP');
+   request = new XMLHttpRequest();
+    //request = new ActiveXObject('Microsoft.XMLHTTP');
    request.onreadystatechange = updateasyncstatus;
    request.open("GET", server, true);
    request.send(null);
@@ -17,6 +17,7 @@ function morestatus(){
 function updateasyncstatus(){
 if ((request.readyState == 4) && (request.status == 200))
 	{
+		alert('hello');
 		result = request.responseText;
 		document.getElementById("description").innerHTML = result;
 		fullset = result.split("#");
