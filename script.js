@@ -59,6 +59,7 @@ if ((request.readyState == 4) && (request.status == 200))
 function sendbutton(Pin,action){
 	server = "digital/" + Pin + "/" + action;
 	request = new XMLHttpRequest();
+	request.onreadystatechange = updateasyncbutton;
 	request.open("GET", server, true);
 	request.send(null);
 }
@@ -70,16 +71,17 @@ function updateasyncbutton(){
 		 PinType = singleset[0];
 		 PinNum = singleset[1];
 		 Pinstatus = singleset[2];
-		 ActNum = "action" + PinNum;
-		 TxtNum = "text" + PinNum;
-	if (Pinstatus == 0){
-			PinAct = "1";
-			text = "Off";
-		}else{
-			PinAct = "0";
-			text = "On";
-		}
-	document.getElementById("btnSuccess").value = text;
+		ActNum = "action" + PN;
+		btnId= "pin" + PinNum;
+		if (Pinstatus == 0){
+				PinAct = "1";
+				text = "Off";
+			}else{
+				PinAct = "0";
+				text = "On";
+			}
+	//document.getElementById("btnSuccess").value = text;
+	document.getElementById(btnId).innerHTML = text;
 	}
 }
 //</script>
