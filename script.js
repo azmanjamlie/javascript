@@ -21,7 +21,7 @@ if ((request.readyState == 4) && (request.status == 200))
 	{
 		 alert('hello');
 		xmlResponse=request.responseXML;
-		xmldoc = xmlResponse.getElementsByTagName('response');
+		xmldoc = xmlResponse.getElementsByTagName('inputs');
 		message = xmldoc[0].firstChild.nodeValue;
 		//result = request.responseText;
 		document.getElementById("description").innerHTML = message;
