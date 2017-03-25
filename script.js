@@ -9,7 +9,7 @@ function morestatus(){
    server = "status/99";
    request = new XMLHttpRequest();
    request.onreadystatechange = updateasyncstatus;
-   request.open("GET", server, true);
+   request.open("GET", server, false);
    request.send(null);
 }
 
@@ -60,7 +60,7 @@ function sendbutton(Pin,action){
 	server = "digital/" + Pin + "/" + action;
 	request = new XMLHttpRequest();
 	request.onreadystatechange = updateasyncbutton;
-	request.open("GET", server, true);
+	request.open("GET", server, false);
 	request.send(null);
 }
 
