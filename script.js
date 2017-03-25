@@ -17,7 +17,7 @@ function morestatus(){
 function updateasyncstatus(){
 if ((request.readyState == 4) && (request.status == 200))
 	{
-		alert('hello');
+		 alert('hello');
 		result = request.responseText;
 		document.getElementById("description").innerHTML = result;
 		fullset = result.split("#");
