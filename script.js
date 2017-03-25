@@ -20,9 +20,12 @@ function updateasyncstatus(){
 if ((request.readyState == 4) && (request.status == 200))
 	{
 		 alert('hello');
-		result = request.responseText;
-		document.getElementById("description").innerHTML = result;
-		fullset = result.split("#");
+		xmlResponse=request.responseXML;
+		xmldoc = xmlResponse.getElementsByTagName('response');
+		message = xmldoc[0].firstChild.nodeValue;
+		//result = request.responseText;
+		document.getElementById("description").innerHTML = message;
+		fullset = message.split("#");
 		document.getElementById("description").innerHTML = fullset;
 		
 		for(i = 1; i < fullset.length; i++){
