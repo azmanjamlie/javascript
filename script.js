@@ -8,7 +8,7 @@ function morestatus(){
    document.getElementById("description").innerHTML = "Processing Status";
    server = "status/99";
    //request = new XMLHttpRequest();
-   request = new ActiveXObject('Microsoft.XMLHTTP');
+    request = new ActiveXObject('Microsoft.XMLHTTP');
    request.onreadystatechange = updateasyncstatus;
    request.open("GET", server, true);
    request.send(null);
