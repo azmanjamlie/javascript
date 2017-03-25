@@ -1,7 +1,7 @@
 <script>
 window.onload=Pinstatus();
 function Pinstatus(){
-   morestatus();
+   //morestatus();
 }
 function morestatus(){
    setTimeout(morestatus, 4000);
