@@ -22,7 +22,7 @@ function morestatus(){
 	 alert('hellocv');
    xmlHttp.open("GET", server, true);
 	alert('bah');
-   request.send(null);
+   xmlHttp.send(null);
 	}
 }
 
