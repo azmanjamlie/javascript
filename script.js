@@ -11,7 +11,7 @@ function morestatus(){
     //request = new ActiveXObject('Microsoft.XMLHTTP');
    request.onreadystatechange = updateasyncstatus;
 	 alert('hellocv');
-   request.open("PUT", server, true);
+   request.open("GET", server, true);
 	alert('bah');
    request.send(null);
 }
