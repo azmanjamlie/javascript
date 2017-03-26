@@ -18,19 +18,19 @@ function morestatus(){
    //request = new XMLHttpRequest();
     //request = new ActiveXObject('Microsoft.XMLHTTP');
 	if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
-   xmlHttp.onreadystatechange = updateasyncstatus;
-	 alert('hellocv');
-   xmlHttp.open("GET", server, true);
-	alert('bah');
-   xmlHttp.send(null);
+   		xmlHttp.onreadystatechange = updateasyncstatus;
+	 	//alert('hellocv');
+   		xmlHttp.open("GET", server, true);
+		//alert('bah');
+   		xmlHttp.send(null);
 	}
 }
 
 function updateasyncstatus(){
-	alert(xmlHttp.readyState);alert(xmlHttp.status);alert(xmlHttp.responseText);
+	//alert(xmlHttp.readyState);alert(xmlHttp.status);alert(xmlHttp.responseText);
 if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200))
 	{
-		 alert('hello');
+		 //alert('hello');
 		xmlResponse=xmlHttp.responseXML;
 		xmldoc = xmlResponse.getElementsByTagName('inputs');
 		message = xmldoc[0].firstChild.nodeValue;
@@ -38,13 +38,11 @@ if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200))
 		document.getElementById("description").innerHTML = message;
 		fullset = message.split("#");
 		document.getElementById("description").innerHTML = fullset;
-		
 		for(i = 1; i < fullset.length; i++){
 				PinPair = fullset[i];
 				singleset = PinPair.split("=");
 				PN = singleset[0];
 				Pinstatus = singleset[1];
-				
 					ActNum = "action" + PN;
 					btnId= "pin" + PN;
 					if (Pinstatus == 0){
@@ -87,10 +85,10 @@ function sendbutton(Pin,action){
 function updateasyncbutton(){
 	if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)){
 		result = xmlHttp.responseText;
-		 singleset = result.split(",");
-		 PinType = singleset[0];
-		 PinNum = singleset[1];
-		 Pinstatus = singleset[2];
+		singleset = result.split(",");
+		PinType = singleset[0];
+		PinNum = singleset[1];
+		Pinstatus = singleset[2];
 		ActNum = "action" + PN;
 		btnId= "pin" + PinNum;
 		if (Pinstatus == 0){
