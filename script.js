@@ -73,6 +73,7 @@ if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200))
 }
 
 function sendbutton(Pin,action){
+	document.getElementById("pin" + Pin).innerHTML = "processing.... " ;
 	server = "digital/" + Pin + "/" + action;
 	request = new XMLHttpRequest();
 	//if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
