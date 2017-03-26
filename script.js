@@ -74,17 +74,17 @@ if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200))
 
 function sendbutton(Pin,action){
 	server = "digital/" + Pin + "/" + action;
-	//request = new XMLHttpRequest();
+	request = new XMLHttpRequest();
 	//if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
-	xmlHttp.onreadystatechange = updateasyncbutton;
-	xmlHttp.open("GET", server, true);
-	xmlHttp.send(null);
+	request.onreadystatechange = updateasyncbutton;
+	request.open("GET", server, true);
+	request.send(null);
 	//}
 }
 
 function updateasyncbutton(){
-	if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)){
-		xmlResponse=xmlHttp.responseXML;
+	if ((request.readyState == 4) && (request.status == 200)){
+		xmlResponse=request.responseXML;
 		xmldoc = xmlResponse.getElementsByTagName('inputs');
 		message = xmldoc[0].firstChild.nodeValue;
 		//result = xmlHttp.responseText;
