@@ -17,6 +17,7 @@ function morestatus(){
 }
 
 function updateasyncstatus(){
+	alert(request.readyState);
 if ((request.readyState == 4) && (request.status == 200))
 	{
 		 alert('hello');
