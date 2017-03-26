@@ -84,8 +84,11 @@ function sendbutton(Pin,action){
 
 function updateasyncbutton(){
 	if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)){
-		result = xmlHttp.responseText;
-		singleset = result.split(",");
+		xmlResponse=xmlHttp.responseXML;
+		xmldoc = xmlResponse.getElementsByTagName('inputs');
+		message = xmldoc[0].firstChild.nodeValue;
+		//result = xmlHttp.responseText;
+		singleset = message.split(",");
 		PinType = singleset[0];
 		PinNum = singleset[1];
 		Pinstatus = singleset[2];
