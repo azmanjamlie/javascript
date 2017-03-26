@@ -75,11 +75,11 @@ if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200))
 function sendbutton(Pin,action){
 	server = "digital/" + Pin + "/" + action;
 	//request = new XMLHttpRequest();
-	if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
+	//if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
 	xmlHttp.onreadystatechange = updateasyncbutton;
 	xmlHttp.open("GET", server, true);
 	xmlHttp.send(null);
-	}
+	//}
 }
 
 function updateasyncbutton(){
