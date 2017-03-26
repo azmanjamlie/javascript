@@ -1,5 +1,13 @@
 //<script>
-window.onload=Pinstatus();
+window.onload=Pinstatus;
+var xmlHttp=createXmlHttpObject();
+function createXmlHttpObject(){
+	if(window.XMLHttpRequest){
+		xmlHttp=new XMLHttpRequest();
+	}else{ xmlHttp=new ActiveXObject('Microsoft.XMLHTTP');}
+	return xmlHttp;
+}
+		
 function Pinstatus(){
    morestatus();
 }
@@ -7,21 +15,23 @@ function morestatus(){
    setTimeout(morestatus, 4000);
    document.getElementById("description").innerHTML = "Processing Status";
    server = "status/99";
-   request = new XMLHttpRequest();
+   //request = new XMLHttpRequest();
     //request = new ActiveXObject('Microsoft.XMLHTTP');
-   request.onreadystatechange = updateasyncstatus;
+	if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
+   xmlHttp.onreadystatechange = updateasyncstatus;
 	 alert('hellocv');
-   request.open("GET", server, true);
+   xmlHttp.open("GET", server, true);
 	alert('bah');
    request.send(null);
+	}
 }
 
 function updateasyncstatus(){
-	alert(request.readyState);alert(request.status);alert(request.responseText);
-if ((request.readyState == 4) && (request.status == 200))
+	alert(xmlHttp.readyState);alert(xmlHttp.status);alert(xmlHttp.responseText);
+if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200))
 	{
 		 alert('hello');
-		xmlResponse=request.responseXML;
+		xmlResponse=xmlHttp.responseXML;
 		xmldoc = xmlResponse.getElementsByTagName('inputs');
 		message = xmldoc[0].firstChild.nodeValue;
 		//result = request.responseText;
@@ -66,15 +76,17 @@ if ((request.readyState == 4) && (request.status == 200))
 
 function sendbutton(Pin,action){
 	server = "digital/" + Pin + "/" + action;
-	request = new XMLHttpRequest();
-	request.onreadystatechange = updateasyncbutton;
-	request.open("GET", server, true);
-	request.send(null);
+	//request = new XMLHttpRequest();
+	if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
+	xmlHttp.onreadystatechange = updateasyncbutton;
+	xmlHttp.open("GET", server, true);
+	xmlHttp.send(null);
+	}
 }
 
 function updateasyncbutton(){
-	if ((request.readyState == 4) && (request.status == 200)){
-		result = request.responseText;
+	if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)){
+		result = xmlHttp.responseText;
 		 singleset = result.split(",");
 		 PinType = singleset[0];
 		 PinNum = singleset[1];
